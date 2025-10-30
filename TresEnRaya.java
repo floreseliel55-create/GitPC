@@ -6,6 +6,11 @@ public class TresEnRaya{
         int fila=0, columna=0;
         char x = 'x';
         char[][] tablero = new char[3][3];
+        for(int i=0;i<3;i++){
+            for(int j=0;j<3;j++){
+                tablero[i][j]=' ';
+            }
+        }
         System.out.println("---Tres en raya---");
         System.out.println("Llene el tres en raya: ");
                 System.out.println("["+"]"+"["+"]"+"["+"]"); 
@@ -21,16 +26,25 @@ public class TresEnRaya{
                 fila=fila-1;
                 columna = sc.nextInt();
                 columna=columna-1;
+                if(tablero[fila][columna]!=' '){
+                    System.out.println("Esa posicion ya esta ocupada, ingrese otra");
+                    f--;
+                    c--;
+                    continue;
+                }
                 if(jugadores == true){
                 tablero[fila][columna] = x;
                 jugadores = false;
+                
                 }
                 else{
                 jugadores = true;
                     tablero[fila][columna] = 'O';
                 }
                 System.out.println("         fila-->");
+                System.out.println("-------|----------------");
                 System.out.println("Columna|  ["+tablero[0][0]+"]"+"["+tablero[0][1]+"]"+"["+tablero[0][2]+"]"); 
+                
                     System.out.println("       |  ["+tablero[1][0]+"]"+"["+tablero[1][1]+"]"+"["+tablero[1][2]+"]"); 
                     System.out.println("       |  ["+tablero[2][0]+"]"+"["+tablero[2][1]+"]"+"["+tablero[2][2]+"]");
                     if(tablero[0][0]=='x' && tablero[0][1]=='x' && tablero[0][2]=='x'){
